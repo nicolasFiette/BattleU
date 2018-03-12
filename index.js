@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 
 var port = process.env.PORT || 8080;        // set our port
 
-// ROUTER
+  // ROUTER
 var router = express.Router();
 
 router.get('/', function(req, res) {
@@ -17,7 +17,7 @@ router.get('/', function(req, res) {
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
-app.use('/api', router);
+app.use('/', router);
 
 // START THE SERVER
 // =============================================================================
