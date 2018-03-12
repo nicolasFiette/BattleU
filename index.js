@@ -15,6 +15,14 @@ router.get('/', function(req, res) {
     res.json({ message: 'BattleU API' });
 });
 
+router.get('/player/:id', function(req, res) {
+    res.json({ message: 'player ID' });
+});
+
+router.get('/champions/:id', function(req, res) {
+    res.json({ message: 'champions information' });
+});
+
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/', router);
