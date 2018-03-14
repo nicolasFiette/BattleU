@@ -16,7 +16,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/player/:id', function(req, res) {
-    res.json({ message: 'player ID' });
+    res.json(   );
 });
 
 router.get('/champions/:id', function(req, res) {
