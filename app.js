@@ -1,34 +1,23 @@
-var express    = require('express');
-var mongo      = require('mongodb');
-var app        = express();
-var bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const app = express();
+const opn = require('opn');
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'build')));
 
-var port = process.env.PORT || 8080;
-var router = express.Router();
-var MongoClient = mongo.MongoClient;
-var url = "mongodb://localhost:27017";
-
-MongoClient.connect(url, function(err, database) {
-    if (err) throw err;
-    db=database;
-    console.log("Database created");
-    app.listen(port);
-    console.log('Port number: ' + port);
-});
-
-router.get('/', function(req, res) {
+app.get('/', function(req, res) {
     res.json({ message: 'BattleU' });
 });
 
-router.get('/player/:id', function(req, res) {
-    res.json({ message: 'BattleU' });
+app.get('/player/:id', function(req, res) {
+    res.json({ message: 'Player information' });
 });
-router.get('/champion/:id', function(req, res) {
-    res.json({ message: 'BattleU' });
+app.get('/champion/:id', function(req, res) {
+    res.json({ message: 'Player information' });
 });
 
-app.use('./', router);
-
+app.listen(8080,function() {
+        console.log("Running at Port 8080");
+        opn('http://localhost:8080');
+    }
+);
