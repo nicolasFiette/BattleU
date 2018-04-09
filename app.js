@@ -6,13 +6,6 @@ const opn = require('opn');
 const steam = require('steam');
 const bodyparser = require('body-parser');
 
-app.use(require('express-session')({ resave: false, saveUninitialized: false, secret: 'FDF755B7CC8C78C0B934083200A35538' }));
-
-app.use(steam.middleware({
-    realm: 'http://localhost:3000/',
-    verify: 'http://localhost:3000/verify',
-    apiKey: process.argv[2]}
-));
 
 app.get('/', function(req, res) {
     res.json({ message: 'BattleU' });
