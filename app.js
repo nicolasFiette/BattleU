@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const opn = require('opn');
-const bodyparser = require('bodyparser');
+const bodyparser = require('body-parser');
 
 app.use(require('express-session')({ resave: false, saveUninitialized: false, secret: 'a secret' }));
 
